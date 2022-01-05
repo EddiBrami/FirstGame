@@ -1,0 +1,19 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+.contenedor {
+	margin: auto;
+	padding: 0;
+	width: 500px;
+	height: 500px;
+	background-color: lightcyan;
+	margin-top: 50px;
+	border: 3px dashed #b22;
+}
+#player {
+	width: 50px;
+	height: 50px;
+	border-radius: 5px;
+}

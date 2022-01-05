@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Juegos pa jugar.</title>
+</head>
+<style>
+	* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+.container {
+	margin: auto;
+	padding: 0;
+	width: 500px;
+	height: 500px;
+	background-color: lightcyan;
+	margin-top: 30px;
+	border: 3px dashed #b22;
+}
+#player {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	background-image: url(https://i.pinimg.com/originals/29/80/3e/29803ed3ee10eb81c500baedc050d491.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	transition: all 0.3s;
+}
+.container-pointer {
+   margin: 10px 0 0 30px;	
+   background-color: #444;
+   width: 600px;
+   height: 50px;
+   border: 3px solid cyan;
+   border-radius: 25px;
+   color: white;
+   font-size: 20px;
+   text-align: center;
+   padding: 5px 0px;
+}
+</style>
+<body>
+	<div class="container-pointer">
+		<span id="points"></span>
+		<span id="ned"></span>
+		<span id="time"></span>
+	</div>
+	<div class="container">
+		<div id="player"></div>
+	</div>
+
+<script>
+	document.getElementById("player").addEventListener("click", sumarPuntos);
+    
+    dots = 0;
+    time = 60;
+    neded = 30;
+    function sumarPuntos() {
+    
+     dots++;
+     document.getElementById("points").innerHTML = "Points: <b>" + dots + "/" + neded + "</b>";
+    
+     randNum = Math.round(Math.random()*450);
+     randNum2 = Math.round(Math.random()*450);
+    
+     document.getElementById("player").style.marginTop = randNum + "px";
+     document.getElementById("player").style.marginLeft = randNum2 + "px";
+    	
+    	if (dots == 30) {
+     	alert("Ganaste che, vení te beso.");
+     }
+}
+
+    function limitTime() {
+        time--;
+        document.getElementById("time").innerHTML = "Time: " + time;
+        if(time == 0) {
+        	alert("Perdiste capo, salí de acá.")
+        	time = 0;
+            points = 0;
+            neded = 0;
+            alert("Recarga la página para iniciar de nuevo, gracias!")
+        }
+    }
+
+
+
+    setInterval(limitTime, 1000);
+
+</script>
+</body>
+</html>
